@@ -26,12 +26,12 @@ const Hero = () => {
         transition={{ duration: 0.9, delay: 0.2 }}
         className="text-2xl md:text-3xl mt-4 text-gray-300"
       >
-        Desarrollador Web & Analista SQL
+        Desarrollador Java | FullStack & Analista SQL
       </motion.h2>
 
       <p className="mt-6 text-gray-400 max-w-md">
-        Apasionado por el desarrollo fullstack, la optimización de bases de datos
-        y las soluciones creativas para la web moderna.
+        Apasionado por el desarrollo de software fullstack, la optimización de bases de datos
+        y las soluciones creativas para la web y aplicaciones modernas.
       </p>
 
       
