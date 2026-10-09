@@ -1,5 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const certificados = [
   { id: 1, title: "SQL y Bases de Datos", institucion: "Coderhouse – 2024", image: "/Certificado_SQL.jpeg" },
@@ -31,95 +32,98 @@ const certificados = [
   { id: 28, title: "Java", institucion: "Oracle Next Education – 2024", image: "/public/JAVA_conversorDeMonedas.jpg" },
   { id: 29, title: "Frontend", institucion: "Universidad Tecnológica Nacional Ricardo Rojas– 2024", image: "/public/CSSuba.png" },
   { id: 30, title: "Frontend", institucion: "Universidad Tecnológica Nacional Ricardo Rojas– 2024", image: "/public/Javascript.png" },
+  { id: 31, title: "MobyDigital", institucion: "2026", image: "/public/certificadoAcademy.png" },
 ];
 
-const Certificados = () => {
+const Certificates = () => {
   const [selected, setSelected] = useState(null);
-  const carouselRef = useRef(null);
+  const { t } = useTranslation();
 
-  // Función para mover el carrusel
-  const scroll = (direction) => {
-    if (carouselRef.current) {
-      const { scrollLeft, clientWidth } = carouselRef.current;
-      // Desplaza el equivalente a casi todo el ancho visible
-      const scrollAmount = clientWidth * 0.8;
-      carouselRef.current.scrollTo({
-        left: direction === "left" ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
+  // Dividimos los certificados en 3 filas para el carrusel
+  const row1 = certificados.slice(0, 10);
+  const row2 = certificados.slice(10, 20);
+  const row3 = certificados.slice(20);
+
+  // Componente interno para renderizar cada tarjeta
+  const CertificateCard = ({ cert }) => (
+    <motion.div
+      whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(249, 115, 22, 0.4)" }}
+      transition={{ type: "spring", stiffness: 250, damping: 15 }}
+      className="relative bg-[#161b22] border border-gray-800 rounded-xl overflow-hidden cursor-pointer group/card w-[280px] shrink-0 mx-3"
+      onClick={() => setSelected(cert)}
+    >
+      <div className="overflow-hidden">
+        <motion.img
+          src={cert.image}
+          alt={cert.title}
+          className="w-full h-40 object-cover object-top transform group-hover/card:scale-110 transition-transform duration-500"
+        />
+      </div>
+      <motion.div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      <div className="p-4 text-left">
+        <h3 className="text-lg font-semibold text-white mb-1 truncate">{cert.title}</h3>
+        <p className="text-gray-400 text-xs truncate">{cert.institucion}</p>
+      </div>
+    </motion.div>
+  );
 
   return (
-    <section
-      id="certificados"
-      className="py-20 bg-[#0d1117] text-center overflow-hidden"
-    >
+    <section id="certificados" className="py-20 bg-[#0d1117] text-center overflow-hidden">
+      
+      {/* Estilos CSS puros para el Marquee Infinito */}
+      <style>{`
+        .marquee-wrapper {
+          display: flex;
+          width: max-content;
+        }
+        .animate-marquee-left {
+          animation: marquee-left 40s linear infinite;
+        }
+        .animate-marquee-right {
+          animation: marquee-right 40s linear infinite;
+        }
+        .marquee-wrapper:hover {
+          animation-play-state: paused;
+        }
+        @keyframes marquee-left {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes marquee-right {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
+        }
+      `}</style>
+
       <div className="px-6 md:px-20 mb-12">
-        <h3 className="text-2xl text-gray-400 mb-2">Logros</h3>
+        <h3 className="text-2xl text-gray-400 mb-2">{t("certificates.label")}</h3>
         <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 bg-clip-text text-transparent">
-          Mis certificados
+          {t("certificates.title")}
         </h2>
       </div>
 
-      {/* Contenedor relativo para posicionar los botones */}
-      <div className="relative group w-full px-4 md:px-12">
-        
-        {/* Botón Izquierda */}
-        <button
-          onClick={() => scroll("left")}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-gray-900/80 hover:bg-gray-800 text-white w-12 h-12 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:flex shadow-[0_0_15px_rgba(249,115,22,0.3)] border border-gray-700"
-        >
-          &#10094;
-        </button>
-
-        {/* Contenedor del Carrusel (Ahora con 3 filas en PC y 2 en móvil) */}
-        <div
-          ref={carouselRef}
-          className="grid grid-rows-2 md:grid-rows-3 grid-flow-col gap-6 overflow-x-auto py-4 snap-x snap-mandatory w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-          style={{ gridAutoColumns: "280px" }}
-        >
-          {certificados.map((cert) => (
-            <motion.div
-              key={cert.id}
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 0 20px rgba(249, 115, 22, 0.4)",
-              }}
-              transition={{ type: "spring", stiffness: 250, damping: 15 }}
-              className="relative bg-[#161b22] border border-gray-800 rounded-xl overflow-hidden cursor-pointer group/card snap-center"
-              onClick={() => setSelected(cert)}
-            >
-              <div className="overflow-hidden">
-                <motion.img
-                  src={cert.image}
-                  alt={cert.title}
-                  className="w-full h-40 object-cover object-top transform group-hover/card:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none"
-              />
-              <div className="p-4 text-left">
-                <h3 className="text-lg font-semibold text-white mb-1 truncate">
-                  {cert.title}
-                </h3>
-                <p className="text-gray-400 text-xs truncate">{cert.institucion}</p>
-              </div>
-            </motion.div>
-          ))}
+      <div className="flex flex-col gap-6 w-full">
+        {/* Fila 1: Movimiento de Izquierda a Derecha */}
+        <div className="marquee-wrapper animate-marquee-right">
+          {row1.map((cert) => <CertificateCard key={cert.id} cert={cert} />)}
+          {/* Duplicamos los elementos para que el loop sea infinito e invisible */}
+          {row1.map((cert) => <CertificateCard key={`${cert.id}-dup`} cert={cert} />)}
         </div>
 
-        {/* Botón Derecha */}
-        <button
-          onClick={() => scroll("right")}
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-gray-900/80 hover:bg-gray-800 text-white w-12 h-12 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:flex shadow-[0_0_15px_rgba(249,115,22,0.3)] border border-gray-700"
-        >
-          &#10095;
-        </button>
+        {/* Fila 2: Movimiento de Derecha a Izquierda */}
+        <div className="marquee-wrapper animate-marquee-left">
+          {row2.map((cert) => <CertificateCard key={cert.id} cert={cert} />)}
+          {row2.map((cert) => <CertificateCard key={`${cert.id}-dup`} cert={cert} />)}
+        </div>
+
+        {/* Fila 3: Movimiento de Izquierda a Derecha */}
+        <div className="marquee-wrapper animate-marquee-right">
+          {row3.map((cert) => <CertificateCard key={cert.id} cert={cert} />)}
+          {row3.map((cert) => <CertificateCard key={`${cert.id}-dup`} cert={cert} />)}
+        </div>
       </div>
 
-      {/* Modal */}
+      {/* Modal para ver la imagen en grande */}
       <AnimatePresence>
         {selected && (
           <motion.div
@@ -163,4 +167,4 @@ const Certificados = () => {
   );
 };
 
-export default Certificados;
+export default Certificates;

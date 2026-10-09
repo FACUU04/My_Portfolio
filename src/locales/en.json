@@ -1,0 +1,60 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About me",
+    "projects": "Projects"
+  },
+  "hero": {
+    "role": "Java Developer | FullStack & SQL Analyst",
+    "description": "Passionate about fullstack software development, database optimization, and creative solutions for the web and modern applications.",
+    "downloadCv": "Download Resume",
+    "downloading": "Downloading..."
+  },
+  "about": {
+    "title": "About me",
+    "p1": "Hello! I'm Sosa Lautaro, a developer passionate about technology, creating efficient solutions, and constantly learning new technologies.",
+    "p2": "Since 2021, I started my journey in the programming world, exploring different languages and technologies. What began as curiosity turned into a true passion. I am self-taught: much of what I know I learned on my own, researching, practicing, and facing real challenges.",
+    "p3": "I am driven by a constant desire to keep learning, growing, and improving both technically and personally. Every project is an opportunity to evolve, and every mistake is a door to a more creative solution.",
+    "p4": "I specialize in fullstack development using React, JavaScript, Java, and SQL database analysis. I enjoy tackling technical challenges, optimizing processes, and collaborating on projects that make a real impact."
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "role": "Backend Developer",
+    "date": "2026 - 6 months (February - July)",
+    "description": "Worked as a Jr Backend Developer at MobyAcademy alongside a team, applying agile methodologies and software development best practices. Utilizing Java, Spring Boot, Microservices, SQL, version control via Git, cloud application deployment (AWS), and Docker."
+  },
+  "projects": {
+    "label": "Projects",
+    "title": "My featured projects",
+    "descriptionPre": "I have developed multiple applications throughout my training. Here is my ",
+    "top3": "Top 3",
+    "descriptionPost": ". You can check out the rest of my repositories on my GitHub profile.",
+    "featured": "Featured Project",
+    "code": "Code",
+    "visitWeb": "Website",
+    "viewPost": "View Post",
+    "allGithub": "View all my repositories on GitHub",
+    "titles": {
+      "falcar": "FALCAR Portfolio Web",
+      "mylogist": "Multi-tenant Logistics SaaS (MyLogist)",
+      "currency": "Java Currency Converter API App"
+    },
+    "descriptions": {
+      "falcar": "Commercial website and high-conversion landing page for HVAC services.",
+      "mylogist": "Comprehensive multi-tenant SaaS platform for cloud-based inventory and sales control.",
+      "currency": "Java backend application for currency conversion consuming external APIs."
+    }
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "certificates": {
+    "label": "Achievements",
+    "title": "My certificates",
+    "show": "View My Certificates",
+    "hide": "Hide Certificates"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}

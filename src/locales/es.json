@@ -1,0 +1,60 @@
+{
+  "navbar": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "projects": "Proyectos"
+  },
+  "hero": {
+    "role": "Desarrollador Java | FullStack & Analista SQL",
+    "description": "Apasionado por el desarrollo de software fullstack, la optimización de bases de datos y las soluciones creativas para la web y aplicaciones modernas.",
+    "downloadCv": "Descargar CV",
+    "downloading": "Descargando..."
+  },
+  "about": {
+    "title": "Sobre mí",
+    "p1": "Hola! Soy Sosa Lautaro, un desarrollador apasionado por la tecnología, por crear soluciones eficientes y por aprender nuevas tecnologías constantemente.",
+    "p2": "Desde el año 2021 comencé a formarme en el mundo de la programación, explorando distintos lenguajes y tecnologías. Lo que empezó como curiosidad se transformó en una verdadera pasión. Soy autodidacta: gran parte de lo que sé lo aprendí por mi cuenta, investigando, practicando y enfrentando desafíos reales.",
+    "p3": "Me impulsa un deseo constante de seguir aprendiendo, creciendo y mejorando tanto a nivel técnico como personal. Cada proyecto es una oportunidad para evolucionar, y cada error, una puerta hacia una solución más creativa.",
+    "p4": "Me especializo en desarrollo fullstack con React, JavaScript, Java y análisis de bases de datos SQL. Disfruto enfrentar desafíos técnicos, optimizar procesos y colaborar en proyectos que generen impacto real."
+  },
+  "experience": {
+    "title": "Experiencia Profesional",
+    "role": "Desarrollador Backend",
+    "date": "2026 - 6 meses (Febrero - Julio)",
+    "description": "Trabaje como Desarrollador Backend Jr en la MobyAcademy junto a un equipo de trabajo aplicando metodologias agiles y buenas practicas de desarrollo de software. Utilizando Java, Spring Boot, Microservicios, SQL, Manejo de versiones por medio de Git, despliegue de applicaciones en la nube (AWS) y Docker."
+  },
+  "projects": {
+    "label": "Proyectos",
+    "title": "Mis proyectos destacados",
+    "descriptionPre": "He desarrollado múltiples aplicaciones a lo largo de mi formación. Aquí presento mi ",
+    "top3": "Top 3",
+    "descriptionPost": ". Puedes ver el resto de mis repositorios en mi perfil de GitHub.",
+    "featured": "Proyecto Destacado",
+    "code": "Código",
+    "visitWeb": "Sitio Web",
+    "viewPost": "Ver Post",
+    "allGithub": "Ver todos mis repositorios en GitHub",
+    "titles": {
+      "falcar": "Web Porfolio FALCAR",
+      "mylogist": "SaaS Logística Multi-tenant (MyLogist)",
+      "currency": "App Java con API conversor de monedas"
+    },
+    "descriptions": {
+      "falcar": "Sitio web comercial y landing page de alta conversión para servicios de climatización.",
+      "mylogist": "Plataforma SaaS integral multi-tenant para control de inventario y ventas en la nube.",
+      "currency": "Aplicación backend en Java para la conversión de divisas consumiendo APIs externas."
+    }
+  },
+  "skills": {
+    "title": "Habilidades"
+  },
+  "certificates": {
+    "label": "Logros",
+    "title": "Mis certificados",
+    "show": "Ver Mis Certificados",
+    "hide": "Ocultar Certificados"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados."
+  }
+}
